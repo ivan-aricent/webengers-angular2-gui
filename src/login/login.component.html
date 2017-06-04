@@ -1,0 +1,52 @@
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div id="main" class="container-fluid" style="width: 30%" >
+
+    
+
+        <form class="form-signin" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+            <h2 class="form-signin-heading">ChatBot Trainer Admin Portal</h2>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Username" required autofocus ngControl="username"
+                [(ngModel)]="user.username">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input name="inputPassword" class="form-control" type="password" placeholder="Password" required ngControl="password" [(ngModel)]="user.password">
+            <div class="checkbox">
+                <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+
+        </form>
+
+<br>
+<br>
+
+    <div class="bs-example" *ngIf="isSuccess">
+        <div class="alert alert-success fade in">
+
+            <span class="close" data-dismiss="alert">&times;</span>
+            <strong>Success!</strong> {{loginApiResponse}}
+        </div>
+    </div>
+
+    <div class="bs-example" *ngIf="isError">
+        <div class="alert alert-danger fade in">
+
+            <span class="close" data-dismiss="alert">&times;</span>
+            <strong>Error!</strong> {{loginApiResponse}}
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <router-outlet></router-outlet>
+    
+</div>
