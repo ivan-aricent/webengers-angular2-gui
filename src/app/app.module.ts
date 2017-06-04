@@ -1,3 +1,5 @@
+import { ServicesHomeComponent } from './../services-nav/services-home/services-home.component';
+import { ServicesNavComponent } from './../services-nav/services-nav.component';
 import { RestService } from './rest.service';
 import { LoginComponent } from './../login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +19,8 @@ import { ChatComponent } from '../chat/chat.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
+    ServicesNavComponent,
+    ServicesHomeComponent,
     ChatComponent
   ],
   imports: [

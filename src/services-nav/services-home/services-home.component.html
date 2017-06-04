@@ -1,0 +1,46 @@
+<label> Configure Services of ChatBot </label>
+<hr>
+<div id="searchServices">
+    <form class="navbar-form" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+        <button class="btn btn-default pull-right">New Service</button>
+    </form>
+</div>
+<hr>
+
+<div id="servicesListContainer">
+    <!--sdfsdfsdfdsf
+    <br>
+    sdfsdfsdfdsf
+    <br>
+    sdfsdfsdfdsf
+    <br>
+    sdfsdfsdfdsf
+    <br>
+    sdfsdfsdfdsf
+    <br>
+    sdfsdfsdfdsf
+    <br>-->
+
+    <div class="panel panel-primary col-lg-3" style="padding-left: 0px; padding-right: 0px; margin-left: 20px; margin-right: 20px"
+        *ngFor="let s of serviceArray">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{s.serviceName}}</h3>
+        </div>
+        <div class="panel-body">
+            {{s.serviceDesc}}
+
+            <!--<div class="container">-->
+            <p>
+                <br>
+                <a href="#"><span class="glyphicon glyphicon-pencil pull-left"></span></a>
+                <a href="#"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+            </p>
+            <!--</div>-->
+        </div>
+    </div>
+
+</div>
