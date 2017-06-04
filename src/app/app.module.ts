@@ -1,3 +1,4 @@
+import { ServicesNewComponent } from './../services-nav/services-new/services-new.component';
 import { ServicesHomeComponent } from './../services-nav/services-home/services-home.component';
 import { ServicesNavComponent } from './../services-nav/services-nav.component';
 import { RestService } from './rest.service';
@@ -19,8 +20,9 @@ import { ChatComponent } from '../chat/chat.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    ServicesNavComponent,
     ServicesHomeComponent,
+    ServicesNavComponent,
+    ServicesNewComponent,
     ChatComponent
   ],
   imports: [

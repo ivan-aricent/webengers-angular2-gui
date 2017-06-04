@@ -1,0 +1,32 @@
+<header>
+    <app-home></app-home>
+</header>
+
+<br><br><br><br><br><br>
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#serviceInfo" data-toggle="tab" aria-expanded="true">Service Information</a></li>
+        <li class=""><a href="#entities" data-toggle="tab" aria-expanded="false">Entities</a></li>
+        <li class=""><a href="#operations" data-toggle="tab" aria-expanded="false">Operations</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active in" id="serviceInfo">
+            <p>Service Information</p>
+            <div>
+                <div style="height: 500px">
+                    create a service...
+                </div>
+                <a [routerLink]="['/services-nav']"><button class="btn btn-default pull-left">Cancel</button></a>
+                <button class="btn btn-default pull-right">Next</button>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="entities">
+            <p>Entities</p>
+        </div>
+        <div class="tab-pane fade" id="operations">
+            <p>Operations</p>
+        </div>
+    </div>
+
+</div>

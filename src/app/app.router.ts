@@ -1,3 +1,4 @@
+import { ServicesNewComponent } from './../services-nav/services-new/services-new.component';
 import { ServicesNavComponent } from './../services-nav/services-nav.component';
 import { LoginComponent } from './../login/login.component';
 import {ModuleWithProviders} from "@angular/core";
@@ -11,6 +12,7 @@ export const router: Routes = [
     {path:'login', component:LoginComponent},
     {path:'home', /*component:HomeComponent*/ redirectTo:'services-nav', pathMatch:'full'},
     {path:'services-nav', component:ServicesNavComponent},
+    {path:'services-new', component:ServicesNewComponent},
     {path:'chat', component:ChatComponent}
 ]
 

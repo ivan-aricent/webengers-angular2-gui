@@ -6,7 +6,7 @@
             <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">Search</button>
-        <button class="btn btn-default pull-right">New Service</button>
+        <a [routerLink]="['/services-new']"><button class="btn btn-default pull-right">New Service</button></a>
     </form>
 </div>
 <hr>
@@ -25,7 +25,7 @@
     sdfsdfsdfdsf
     <br>-->
 
-    <div class="panel panel-primary col-lg-3" style="padding-left: 0px; padding-right: 0px; margin-left: 20px; margin-right: 20px"
+    <div class="panel panel-primary col-lg-2" style="padding-left: 0px; padding-right: 0px; margin-left: 23px; margin-right: 23px"
         *ngFor="let s of serviceArray">
         <div class="panel-heading">
             <h3 class="panel-title">{{s.serviceName}}</h3>
