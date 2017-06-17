@@ -1,92 +1,166 @@
-/*!
- * bootstrap-vertical-tabs - v1.1.0
- * https://dbtek.github.io/bootstrap-vertical-tabs
- * 2014-06-06
- * Copyright (c) 2014 Ä°smail Demirbilek
- * License: MIT
- */
-.tabs-left, .tabs-right {
-  border-bottom: none;
-  padding-top: 2px;
-}
-.tabs-left {
-  border-right: 1px solid #ddd;
-}
-.tabs-right {
-  border-left: 1px solid #ddd;
-}
-.tabs-left>li, .tabs-right>li {
-  float: none;
-  margin-bottom: 2px;
-}
-.tabs-left>li {
-  margin-right: -1px;
-}
-.tabs-right>li {
-  margin-left: -1px;
-}
-.tabs-left>li.active>a,
-.tabs-left>li.active>a:hover,
-.tabs-left>li.active>a:focus {
-  border-bottom-color: #ddd;
-  border-right-color: transparent;
+.row{
+    margin-left:0px;
+    margin-right:0px;
 }
 
-.tabs-right>li.active>a,
-.tabs-right>li.active>a:hover,
-.tabs-right>li.active>a:focus {
-  border-bottom: 1px solid #ddd;
-  border-left-color: transparent;
+#wrapper {
+    padding-left: 70px;
+    transition: all .4s ease 0s;
+    height: 100%
 }
-.tabs-left>li>a {
-  border-radius: 4px 0 0 4px;
-  margin-right: 0;
-  display:block;
+
+#sidebar-wrapper {
+    margin-left: -150px;
+    left: 70px;
+    width: 150px;
+    /*background: #222;*/
+    position: fixed;
+    height: 100%;
+    z-index: 10000;
+    transition: all .4s ease 0s;
 }
-.tabs-right>li>a {
-  border-radius: 0 4px 4px 0;
-  margin-right: 0;
+
+.sidebar-nav {
+    display: block;
+    float: left;
+    width: 150px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-.vertical-text {
-  margin-top:50px;
-  border: none;
-  position: relative;
+#page-content-wrapper {
+    padding-left: 0;
+    margin-left: 0;
+    width: 100%;
+    height: auto;
 }
-.vertical-text>li {
-  height: 20px;
-  width: 120px;
-  margin-bottom: 100px;
+#wrapper.active {
+    padding-left: 150px;
 }
-.vertical-text>li>a {
-  border-bottom: 1px solid #ddd;
-  border-right-color: transparent;
-  text-align: center;
-  border-radius: 4px 4px 0px 0px;
+#wrapper.active #sidebar-wrapper {
+    left: 150px;
 }
-.vertical-text>li.active>a,
-.vertical-text>li.active>a:hover,
-.vertical-text>li.active>a:focus {
-  border-bottom-color: transparent;
-  border-right-color: #ddd;
-  border-left-color: #ddd;
+
+#page-content-wrapper {
+  width: 100%;
 }
-.vertical-text.tabs-left {
-  left: -50px;
+
+#sidebar_menu{
+  background: #e95420;
+  color: white;
 }
-.vertical-text.tabs-right {
-  right: -50px;
+
+#sidebar_menu li a, .sidebar-nav li a {
+    /*color: #999;*/
+    display: block;
+    float: left;
+    text-decoration: none;
+    width: 150px;
+    /*background: #252525;*/
+    /*border-top: 1px solid #373737;
+    border-bottom: 1px solid #1A1A1A;*/
+    -webkit-transition: background .5s;
+    -moz-transition: background .5s;
+    -o-transition: background .5s;
+    -ms-transition: background .5s;
+    transition: background .5s;
 }
-.vertical-text.tabs-right>li {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
+.sidebar_name {
+    padding-top: 25px;
+    /*color: #fff;*/
+    opacity: .7;
 }
-.vertical-text.tabs-left>li {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+
+.sidebar-nav li {
+  line-height: 40px;
+  text-indent: 20px;
+}
+
+.sidebar-nav li a {
+  /*color: #999999;*/
+  display: block;
+  text-decoration: none;
+}
+
+.sidebar-nav li a:hover {
+  /*color: #fff;*/
+  /*background: rgba(255,255,255,0.2);*/
+  text-decoration: none;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  line-height: 60px;
+  font-size: 18px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  /*color: #999999;*/
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  /*color: #fff;*/
+  /*background: none;*/
+}
+
+.sidebar-nav > li.active > a,
+.sidebar-nav > li.active > a:hover,
+.sidebar-nav > li.active > a:focus {
+    border-bottom-color: #ddd;
+    border-right-color: transparent;
+    background-color: #dddddd;
+    color: #777777;
+}
+
+.sidebar-wrapper{
+  border-style: solid;
+  border-color: transparent;
+  border-right-color: #dddddd;
+}
+
+#main_icon
+{
+    float:right;
+   padding-right: 15px;
+   padding-top:20px;
+}
+.sub_icon
+{
+    float:right;
+   padding-right: 15px;
+   padding-top:10px;
+}
+.content-header {
+  height: 65px;
+  line-height: 65px;
+}
+
+.content-header h1 {
+  margin: 0;
+  margin-left: 20px;
+  line-height: 65px;
+  display: inline-block;
+}
+
+@media (max-width:767px) {
+#wrapper {
+    padding-left: 70px;
+    transition: all .4s ease 0s;
+}
+#sidebar-wrapper {
+    left: 70px;
+}
+#wrapper.active {
+    padding-left: 150px;
+}
+#wrapper.active #sidebar-wrapper {
+    left: 150px;
+    width: 150px;
+    transition: all .4s ease 0s;
+}
 }

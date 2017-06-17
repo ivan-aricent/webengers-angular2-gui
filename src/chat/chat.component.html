@@ -1,9 +1,27 @@
 <app-home></app-home>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div id="mainChatDiv" class="container-fluid" style="position: fixed; right:0px; bottom:0px">
     <div id="chatsDiv" class="chatBoxScroller">
-        <div *ngFor="let c of chatArray">
-            <b>{{c.sender}}:</b> {{c.text}}
+        <div class="{{c.sender}} chatStyle" *ngFor="let c of chatArray">
+            <!--<b>{{c.sender}}:</b> &nbsp; {{c.text}}-->
+            
+            <div id="avatar" class="{{c.sender}}_avatar">
+                <!--<div id="avatar">-->
+                <!--<b>{{c.sender}}</b>-->
+                <!--<span class="glyphicon glyphicon-user" style="font-size: 16px"></span>-->
+                <!--<img src="https://image.flaticon.com/icons/svg/145/145843.svg"/>-->
+                <img [src]="c.sender === 'bot' ? bot_img : me_img"/>
+                <!--"{{rla.isActive ? './assets/navigation/dashboard-icon-active.svg' : './assets/navigation/dashboard-icon.svg'}}"-->
+            </div>
+            {{c.text}}
+        </div>
+        <div>
+            <div *ngIf="botProcessing" class="fa fa-spinner fa-spin botProcessing" style="font-size:24px"></div>
+            <div *ngIf="showBr">
+                <br><br>
+            </div>
+            <br><br> <!-- whitespace filler to take care of auto-scroll after last chat rendered on gui-->
         </div>
     </div>
     <div>

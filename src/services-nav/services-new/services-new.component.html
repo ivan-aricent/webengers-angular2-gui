@@ -6,9 +6,9 @@
 
 <div class="container">
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#serviceInfo" data-toggle="tab" aria-expanded="true">Service Information</a></li>
-        <li class=""><a href="#entities" data-toggle="tab" aria-expanded="false">Entities</a></li>
-        <li class=""><a href="#operations" data-toggle="tab" aria-expanded="false">Operations</a></li>
+        <li class={{myServiceInfoNavTabClass}}><a href="#serviceInfo" data-toggle="tab" aria-expanded="myServiceInfoNavTabExpanded">Service Information</a></li>
+        <li  class={{myEntitiesNavTabClass}}><a #myEntitiesNavTab href="#entities" data-toggle="tab" aria-expanded="myEntitiesNavTabExpanded">Entities</a></li>
+        <li class={{myOperationsNavTabClass}}><a href="#operations" data-toggle="tab" aria-expanded="myOperationsNavTabExpanded">Operations</a></li>
     </ul>
     <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade active in" id="serviceInfo">
@@ -18,7 +18,7 @@
                     create a service...
                 </div>
                 <a [routerLink]="['/services-nav']"><button class="btn btn-default pull-left">Cancel</button></a>
-                <button class="btn btn-default pull-right">Next</button>
+                <button class="btn btn-default pull-right" (click)="onClickNext()">Next</button>
             </div>
         </div>
         <div class="tab-pane fade" id="entities">
