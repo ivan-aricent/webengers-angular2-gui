@@ -18,7 +18,7 @@
           <ul class="nav navbar-nav">
 
             <li>
-              <a href="../help/">Help</a>
+              <a [routerLink]="['/aboutus']">About Us</a>
             </li>
             <li>
               <!--<a href="chat">Chat</a>-->
@@ -34,7 +34,8 @@
                 <li class="divider"></li>
                 <li><a href="settings">Settings</a></li>
                 <li class="divider"></li>
-                <li><a [routerLink]="['/login']">Logout</a></li>
+                <!--<li><a [routerLink]="['/login']">Logout</a></li>-->
+                <li><a [routerLink]="['/login']" (click)="onLogout()">Logout</a></li>
               </ul>
             </li>
           </ul>

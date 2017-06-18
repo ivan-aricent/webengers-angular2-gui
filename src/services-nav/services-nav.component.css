@@ -117,6 +117,10 @@
     color: #777777;
 }
 
+.sidebar-nav > li > a:hover{
+  background-color: lightsalmon;
+}
+
 .sidebar-wrapper{
   border-style: solid;
   border-color: transparent;
