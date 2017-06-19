@@ -1,0 +1,82 @@
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div id="main" class="container-fluid" style="width: 30%" >
+
+    
+
+        <form [formGroup]="complexForm" (ngSubmit)="onSubmit(complexForm.value)">
+            <div flex layout="column" layout-align="center center" class="text-center">
+                <img src='../assets/images/chatbot_logo_transparent.png' style="width: 180px;">
+                <h2 class="form-signup-heading">ChatBot Trainer Admin Portal</h2>
+                <h3>New user signup</h3>
+            </div>
+            <br>
+            <!--<label for="username" class="sr-only">Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Username" required autofocus ngControl="username"
+                [(ngModel)]="signupUser.username">-->
+            <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['username'].valid && complexForm.controls['username'].touched}">
+                <label for="username" class="sr-only">Username</label>
+                <input name="username" class="form-control" type="text" placeholder="Username" required autofocus [formControl]="complexForm.controls['username']">
+                <div *ngIf="complexForm.controls['username'].hasError('required') && complexForm.controls['username'].touched" class="alert alert-danger">Please provide a username.</div>
+            </div>
+            <br>
+            <!--<label for="inputPassword" class="sr-only">Password</label>
+            <input name="inputPassword" class="form-control" type="password" placeholder="Password" required ngControl="password"
+                [(ngModel)]="signupUser.password">-->
+            <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['inputPassword'].valid && complexForm.controls['inputPassword'].touched}">
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input id="inputPassword" name="inputPassword" formControlName="inputPassword" class="form-control" type="password" placeholder="Password" required autofocus [formControl]="complexForm.controls['inputPassword']">
+                <div *ngIf="complexForm.controls['inputPassword'].hasError('required') && complexForm.controls['inputPassword'].touched" class="alert alert-danger">Please provide a password.</div>
+                <div *ngIf="complexForm.controls['inputPassword'].hasError('minlength') && complexForm.controls['inputPassword'].touched" class="alert alert-danger">Password should be of min 5 characters.</div>
+                <div *ngIf="complexForm.controls['inputPassword'].hasError('maxlength') && complexForm.controls['inputPassword'].touched" class="alert alert-danger">Password should be of max 10 characters.</div>
+            </div>
+            <br>
+
+            <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['confirmPassword'].valid && complexForm.controls['confirmPassword'].touched}">
+                <label for="confirmPassword" class="sr-only">Confirm Password</label>
+                <input id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" class="form-control" type="password" placeholder="Confirm Password" required autofocus [formControl]="complexForm.controls['confirmPassword']">
+                <!-- for all checks other than passwords-match check also
+                <div *ngIf="complexForm.controls['confirmPassword'].hasError('required') && complexForm.controls['confirmPassword'].touched" class="alert alert-danger">Please provide a password.</div>
+                <div *ngIf="complexForm.controls['confirmPassword'].hasError('minlength') && complexForm.controls['confirmPassword'].touched" class="alert alert-danger">Password should be of min 5 characters.</div>
+                <div *ngIf="complexForm.controls['confirmPassword'].hasError('maxlength') && complexForm.controls['confirmPassword'].touched" class="alert alert-danger">Password should be of max 10 characters.</div>
+                -->
+                <div *ngIf="complexForm.controls['confirmPassword'].hasError('matchPassword') && complexForm.controls['confirmPassword'].touched" class="alert alert-danger">Passwords do not match!</div>
+            </div>
+            
+            <br>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!complexForm.valid">Signup</button>
+            </div>
+
+        </form>
+
+<br>
+<br>
+
+    <div class="bs-example" *ngIf="isSuccess">
+        <div class="alert alert-success fade in">
+
+            <span class="close" data-dismiss="alert">&times;</span>
+            <strong>Success!</strong> {{signupApiResponse}}
+        </div>
+    </div>
+
+    <div class="bs-example" *ngIf="isError">
+        <div class="alert alert-danger fade in">
+
+            <span class="close" data-dismiss="alert">&times;</span>
+            <strong>Error!</strong> {{signupApiResponse}}
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <router-outlet></router-outlet>
+    
+</div>

@@ -1,3 +1,4 @@
+import { SignupComponent } from './../signup/signup.component';
 import { ServicesNewComponent } from './../services-nav/services-new/services-new.component';
 import { ServicesNavComponent } from './../services-nav/services-nav.component';
 import { LoginComponent } from './../login/login.component';
@@ -10,6 +11,7 @@ import { ChatComponent } from '../chat/chat.component';
 export const router: Routes = [
     {path:'', redirectTo:'login', pathMatch:'full'},
     {path:'login', component:LoginComponent},
+    {path:'signup', component:SignupComponent},
     {path:'home', /*component:HomeComponent*/ redirectTo:'services-nav', pathMatch:'full'},
     {path:'services-nav', component:ServicesNavComponent},
     {path:'services-new', component:ServicesNewComponent},

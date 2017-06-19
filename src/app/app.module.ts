@@ -1,3 +1,5 @@
+import { SignupUser } from './../shared/signup.user';
+import { SignupComponent } from './../signup/signup.component';
 import { ServicesNewComponent } from './../services-nav/services-new/services-new.component';
 import { ServicesHomeComponent } from './../services-nav/services-home/services-home.component';
 import { ServicesNavComponent } from './../services-nav/services-nav.component';
@@ -5,7 +7,7 @@ import { RestService } from './rest.service';
 import { LoginComponent } from './../login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {routes} from './app.router';
 import {User} from '../shared/user'
@@ -19,6 +21,7 @@ import { ChatComponent } from '../chat/chat.component';
   declarations: [
     AppComponent,
     LoginComponent,
+    SignupComponent,
     HomeComponent,
     ServicesHomeComponent,
     ServicesNavComponent,
@@ -29,9 +32,10 @@ import { ChatComponent } from '../chat/chat.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routes
+    routes,
+    ReactiveFormsModule
   ],
-  providers: [User, Chat, RestService],
+  providers: [User, SignupUser, Chat, RestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
