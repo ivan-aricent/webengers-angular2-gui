@@ -21,7 +21,7 @@
                 [(ngModel)]="signupUser.username">-->
             <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['username'].valid && complexForm.controls['username'].touched}">
                 <label for="username" class="sr-only">Username</label>
-                <input name="username" class="form-control" type="text" placeholder="Username" required autofocus [formControl]="complexForm.controls['username']">
+                <input name="username" class="form-control" type="text" placeholder="Username" required autofocus [formControl]="complexForm.controls['username']" [(ngModel)]="signupUser.username">
                 <div *ngIf="complexForm.controls['username'].hasError('required') && complexForm.controls['username'].touched" class="alert alert-danger">Please provide a username.</div>
             </div>
             <br>
@@ -30,7 +30,7 @@
                 [(ngModel)]="signupUser.password">-->
             <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['inputPassword'].valid && complexForm.controls['inputPassword'].touched}">
                 <label for="inputPassword" class="sr-only">Password</label>
-                <input id="inputPassword" name="inputPassword" formControlName="inputPassword" class="form-control" type="password" placeholder="Password" required autofocus [formControl]="complexForm.controls['inputPassword']">
+                <input id="inputPassword" name="inputPassword" formControlName="inputPassword" class="form-control" type="password" placeholder="Password" required autofocus [formControl]="complexForm.controls['inputPassword']" [(ngModel)]="signupUser.password">
                 <div *ngIf="complexForm.controls['inputPassword'].hasError('required') && complexForm.controls['inputPassword'].touched" class="alert alert-danger">Please provide a password.</div>
                 <div *ngIf="complexForm.controls['inputPassword'].hasError('minlength') && complexForm.controls['inputPassword'].touched" class="alert alert-danger">Password should be of min 5 characters.</div>
                 <div *ngIf="complexForm.controls['inputPassword'].hasError('maxlength') && complexForm.controls['inputPassword'].touched" class="alert alert-danger">Password should be of max 10 characters.</div>

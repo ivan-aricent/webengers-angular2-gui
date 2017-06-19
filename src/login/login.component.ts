@@ -39,6 +39,7 @@ export class LoginComponent {
       this.loginApiResponse = data.text();
       // alert('ok ' + this.loginApiResponse);
       this.isSuccess = true;
+      sessionStorage.setItem('chatbot_admin_username', this.user.username);
       
         setTimeout(() => {
           this._router.navigateByUrl('home');
