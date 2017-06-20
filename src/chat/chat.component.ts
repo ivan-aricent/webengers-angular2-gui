@@ -1,3 +1,5 @@
+import { MessagesResponse } from './../shared/messages.response';
+import { MessagesRequest } from './../shared/messages.request';
 import { RestService } from './../app/rest.service';
 import { Chat } from './../shared/chat';
 import { Component, OnInit } from '@angular/core';
@@ -26,8 +28,19 @@ export class ChatComponent implements OnInit {
   bot_img:string = "https://image.flaticon.com/icons/svg/145/145843.svg";
   me_img:string = "https://image.flaticon.com/icons/svg/145/145849.svg";
 
+  private messageRequest:MessagesRequest;
+  private messageResponse:MessagesResponse;
+
+  private sessionUUID:string;
+  private messageJsonData:string;
+
+  private botReply:string;
+
 constructor(restService: RestService){
   this._restService=restService;
+  this.sessionUUID=sessionStorage.getItem('chatbot_admin_sessionUUID');
+  this.messageRequest=new MessagesRequest(null, this.sessionUUID);
+  this.messageResponse=new MessagesResponse(null, null, null);
 }
 
   ngOnInit() {
@@ -40,11 +53,21 @@ constructor(restService: RestService){
     this.botProcessing = true;
     this.doAutoScroll();
 
-    this._restService.postJson(this.apiAiMessageUrl, text).subscribe(data => {
-      //this.loginApiResponse = data.text();
+    this.messageRequest.message=text;
+    this.messageJsonData = JSON.stringify(this.messageRequest);
+
+    this._restService.postJson(this.apiAiMessageUrl, this.messageJsonData).subscribe(data => {
       //  alert('ok: ' + data.text());
+
+      this.messageResponse = JSON.parse(data.text());
+
+      this.botReply = this.messageResponse.response;
+      if(this.messageResponse.parameters != null){
+        this.botReply += "\n" + this.messageResponse.parameters;
+      }
+      
        this.botProcessing = false;
-       this.chatArray.push(new Chat("bot",data.text()));
+       this.chatArray.push(new Chat("bot", this.botReply));
        this.doAutoScroll();
 
     }, error => {

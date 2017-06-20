@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { RestService } from '../app/rest.service';
 import { Router } from '@angular/router';
 import {User} from '../shared/user';
+import { UUID } from 'angular2-uuid';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +16,13 @@ export class LoginComponent {
   private _router: Router;
 
   public user:User;
+  public sessionUUID:string;
 
   constructor(restService: RestService, router: Router, user:User) {
     this._restService = restService;
     this._router = router;
     this.user=user;
+    this.sessionUUID = UUID.UUID();
   }
 
   jsonData: string = "";
@@ -39,7 +42,8 @@ export class LoginComponent {
       this.loginApiResponse = data.text();
       // alert('ok ' + this.loginApiResponse);
       this.isSuccess = true;
-      sessionStorage.setItem('chatbot_admin_username', this.user.username);
+      sessionStorage.setItem('chatbot_admin_username', this.user.username); //set username in session for usage in welcome pane on top navbar and for session mgmt
+      sessionStorage.setItem('chatbot_admin_sessionUUID', this.sessionUUID); //set sessionUUID in session for usage in chats of /message API
       
         setTimeout(() => {
           this._router.navigateByUrl('home');

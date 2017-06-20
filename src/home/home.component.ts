@@ -36,7 +36,8 @@ export class HomeComponent implements OnInit {
     this.user.password=undefined;*/
 
     sessionStorage.removeItem('chatbot_admin_username'); //remove stored username from session upon logout to prevent any goofy access
-    sessionStorage.clear();
+    sessionStorage.removeItem('chatbot_admin_sessionUUID'); //remove stored sessionUUID (used for chats /message API) from session
+    sessionStorage.clear(); //clear and destroy session
     this._router.navigateByUrl('login');
   }
 }
